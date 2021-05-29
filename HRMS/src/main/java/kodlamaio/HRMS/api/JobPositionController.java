@@ -17,9 +17,9 @@ public class JobPositionController {
 	private JobPositionService jobPositionService;
 	
 	@Autowired
-	public JobPositionController(JobPositionService jobTitleService) {
+	public JobPositionController(JobPositionService jobPositionService) {
 		super();
-		this.jobPositionService = jobTitleService;
+		this.jobPositionService = jobPositionService;
 	}
 
 	@GetMapping("/getall")
