@@ -14,17 +14,17 @@ import kodlamaio.HRMS.entities.concretes.JobPosition;
 @RequestMapping("/api/job_titles")
 public class JobPositionController {
 	
-	private JobPositionService jobTitleService;
+	private JobPositionService jobPositionService;
 	
 	@Autowired
 	public JobPositionController(JobPositionService jobTitleService) {
 		super();
-		this.jobTitleService = jobTitleService;
+		this.jobPositionService = jobTitleService;
 	}
 
 	@GetMapping("/getall")
 	public List<JobPosition> getAll(){
-		return this.jobTitleService.getAll();
+		return this.jobPositionService.getAll();
 	}
 
 }

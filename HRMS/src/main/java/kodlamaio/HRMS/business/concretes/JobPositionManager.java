@@ -12,19 +12,19 @@ import kodlamaio.HRMS.entities.concretes.JobPosition;
 @Service
 public class JobPositionManager implements JobPositionService{
 
-	private JobPositionDao jobTitleDao;
+	private JobPositionDao jobPositionDao;
 	
 	@Autowired
 	public JobPositionManager(JobPositionDao jobTitleDao) {
 		super();
-		this.jobTitleDao = jobTitleDao;
+		this.jobPositionDao = jobTitleDao;
 	}
 
 
 	@Override
 	public List<JobPosition> getAll() {
 		
-		return this.jobTitleDao.findAll();
+		return this.jobPositionDao.findAll();
 	}
 
 }
