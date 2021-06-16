@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.JobPositionService;
+import kodlamaio.HRMS.core.utilities.results.DataResult;
+import kodlamaio.HRMS.core.utilities.results.ErrorResult;
+import kodlamaio.HRMS.core.utilities.results.Result;
+import kodlamaio.HRMS.core.utilities.results.SuccessDataResult;
+import kodlamaio.HRMS.core.utilities.results.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.JobPositionDao;
 import kodlamaio.HRMS.entities.concretes.JobPosition;
 
@@ -19,12 +24,29 @@ public class JobPositionManager implements JobPositionService{
 		super();
 		this.jobPositionDao = jobPositionDao;
 	}
+	
+	private boolean checkIfPositionExists(String jobPosition) {
+		if(this.jobPositionDao.findByTitle(jobPosition) != null) {
+			return false;
+		}
+		
+		return true;
+	}
 
 
 	@Override
-	public List<JobPosition> getAll() {
+	public DataResult<List<JobPosition>> getAll() {
 		
-		return this.jobPositionDao.findAll();
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(),"Data listelendi");
+	}
+
+	@Override
+	public Result add(JobPosition jobPosition) {
+		if(this.checkIfPositionExists(jobPosition.getTitle())) {
+			return new ErrorResult("Bu pozisyon sistemde zaten var.");
+		}
+		this.jobPositionDao.save(jobPosition);
+		return new SuccessResult("İş pozisyonu eklendi.");
 	}
 
 }

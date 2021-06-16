@@ -1,6 +1,5 @@
 package kodlamaio.HRMS.api;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,31 +9,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.HRMS.business.abstracts.JobPositionService;
+import kodlamaio.HRMS.business.abstracts.CandidateService;
 import kodlamaio.HRMS.core.utilities.results.DataResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
-import kodlamaio.HRMS.entities.concretes.JobPosition;
+import kodlamaio.HRMS.entities.concretes.Candidate;
 
 @RestController
-@RequestMapping("/api/job_titles")
-public class JobPositionController {
+@RequestMapping("/api/candidates")
+public class CandidatesController {
 
-	private JobPositionService jobPositionService;
+	private CandidateService candidateService;
 
 	@Autowired
-	public JobPositionController(JobPositionService jobPositionService) {
+	public CandidatesController(CandidateService candidateService) {
 		super();
-		this.jobPositionService = jobPositionService;
+		this.candidateService = candidateService;
 	}
-
-	@GetMapping("/getall")
-	public DataResult<List<JobPosition>> getAll() {
-		return this.jobPositionService.getAll();
-
-	}
-
+	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobPosition jobPosition) {
-		return this.jobPositionService.add(jobPosition);
+	public Result add(@RequestBody Candidate candidate){
+		return this.candidateService.add(candidate);
 	}
+	
+	@GetMapping("/getall")
+	public DataResult<List<Candidate>> getAll(){
+		return this.candidateService.getAll();
+	}
+	
+
 }
