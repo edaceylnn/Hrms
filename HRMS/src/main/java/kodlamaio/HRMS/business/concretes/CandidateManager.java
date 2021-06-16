@@ -39,7 +39,7 @@ public class CandidateManager implements CandidateService {
 	public Result add(Candidate candidate) {
 
 		this.candidateDao.save(candidate);
-		return new SuccessResult("İşveren başarıyla eklendi.");
+		return new SuccessResult("Aday başarıyla eklendi.");
 	}
 
 
