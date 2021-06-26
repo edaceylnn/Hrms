@@ -1,9 +1,13 @@
 package kodlamaio.HRMS.entities.concretes;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +21,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="employers")
 @PrimaryKeyJoinColumn(name = "id",referencedColumnName = "id")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","JobAdvertisement"})
 public class Employer extends User{
 
 	

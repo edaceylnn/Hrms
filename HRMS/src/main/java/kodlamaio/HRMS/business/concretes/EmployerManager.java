@@ -43,4 +43,8 @@ public class EmployerManager implements EmployerService {
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll());
 	}
 
+
+	
+	
+
 }

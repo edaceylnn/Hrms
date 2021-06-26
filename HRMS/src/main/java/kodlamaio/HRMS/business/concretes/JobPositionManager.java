@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.JobPositionService;
 import kodlamaio.HRMS.core.utilities.results.DataResult;
+
 import kodlamaio.HRMS.core.utilities.results.ErrorResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
 import kodlamaio.HRMS.core.utilities.results.SuccessDataResult;
 import kodlamaio.HRMS.core.utilities.results.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.JobPositionDao;
+
 import kodlamaio.HRMS.entities.concretes.JobPosition;
 
 @Service
@@ -48,5 +50,9 @@ public class JobPositionManager implements JobPositionService{
 		this.jobPositionDao.save(jobPosition);
 		return new SuccessResult("İş pozisyonu eklendi.");
 	}
+
+
+
+
 
 }
