@@ -49,19 +49,19 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	@Override
 	public DataResult<List<JobAdvertisement>> getByIsActive() {
 
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByIsActive(), "Aktif data getirildi.");
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByIsActive(true), "Aktif data getirildi.");
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> getAllSortedByDeadline() {
 		return new SuccessDataResult<List<JobAdvertisement>>(
-				jobAdvertisementDao.getByDateIsActive());
+				jobAdvertisementDao.getByDateIsActive(true));
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisement>> getByCompanyNameIsActive(String companyName) {
 		return new SuccessDataResult<List<JobAdvertisement>>(
-				jobAdvertisementDao.getByCompanyNameIsActive(companyName),"Data getirildi.");
+				jobAdvertisementDao.getByCompanyNameIsActive(true,companyName),"Data getirildi.");
 
 	}
 
