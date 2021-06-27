@@ -3,10 +3,16 @@ package kodlamaio.HRMS.entities.concretes;
 
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
+
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
 
 
 import lombok.AllArgsConstructor;
@@ -36,6 +42,8 @@ public class Candidate extends User {
 	@Column(name="birth_year")
 	private int birthYear;
 	
+    @OneToOne(mappedBy = "candidate")
+    private UserPhoto userPhoto;
 	
 
 }
