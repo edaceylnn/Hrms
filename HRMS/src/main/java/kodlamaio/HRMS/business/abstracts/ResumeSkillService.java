@@ -9,6 +9,9 @@ import kodlamaio.HRMS.entities.concretes.ResumeSkill;
 public interface ResumeSkillService {
 
 	Result add(ResumeSkill resumeSkill);
-	DataResult<List<ResumeSkill>> findAllByResumeId(int resumeId);
-	Result addAll(List<ResumeSkill> resumeSkills);
+
+	DataResult<List<ResumeSkill>> getAll();
+
+	DataResult<List<ResumeSkill>> getByCandidateId(int candidateId);
+
 }

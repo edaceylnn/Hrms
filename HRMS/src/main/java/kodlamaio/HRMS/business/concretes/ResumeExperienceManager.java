@@ -35,21 +35,19 @@ public class ResumeExperienceManager implements ResumeExperienceService{
 		return new SuccessResult("Deneyim eklendi");
 	}
 
+
 	@Override
-	public DataResult<List<ResumeExperience>> findAllByResumeId(int resumeId) {
-		return new SuccessDataResult<List<ResumeExperience>>(resumeExperienceDao.findAllByResumeId(resumeId),"Deneyimler listelendi");
-	}
+	public DataResult<List<ResumeExperience>> getByCandidateId(int candidateId) {
 	
-
-	@Override
-	public DataResult<List<ResumeExperience>> findAllByResumeIdOrderByEndDateDesc(int resumeId) {
-		return new SuccessDataResult<List<ResumeExperience>>(resumeExperienceDao.findAllByResumeIdOrderByEndDateDesc(resumeId)," Deneyimler yıllara göre(azalan) listelendi");
+		return new SuccessDataResult<List<ResumeExperience>>(resumeExperienceDao.getByCandidateId(candidateId));
 	}
 
 	@Override
-	public Result addAll(List<ResumeExperience> resumeExperiences) {
-		resumeExperienceDao.saveAll(resumeExperiences);
-		return new SuccessResult("Tecrübe bilgileri eklendi");
+	public DataResult<List<ResumeExperience>> getAll() {
+		
+		return new SuccessDataResult<List<ResumeExperience>>(this.resumeExperienceDao.findAll(),"Data listelendi");
 	}
+
+
 
 }

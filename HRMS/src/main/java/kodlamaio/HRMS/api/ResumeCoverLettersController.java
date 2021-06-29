@@ -31,9 +31,9 @@ public class ResumeCoverLettersController {
 		return resumeCoverLetterService.add(resumeCoverLetter);
 	}
 	
-	@GetMapping("/findAllByResumeId")
-	DataResult<List<ResumeCoverLetter>> findAllByResumeId(int resumeId) {
-		return resumeCoverLetterService.getAll();
+	@GetMapping("/geetAll")
+	DataResult<List<ResumeCoverLetter>> getAll() {
+		return this.resumeCoverLetterService.getAll();
 	}
 	
 }

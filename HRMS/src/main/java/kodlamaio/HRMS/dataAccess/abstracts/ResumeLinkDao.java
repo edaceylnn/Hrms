@@ -8,6 +8,6 @@ import kodlamaio.HRMS.entities.concretes.ResumeLink;
 
 public interface ResumeLinkDao extends JpaRepository<ResumeLink, Integer>{
 	
-	List<ResumeLink> findAllByResumeId(int resumeId);
+	List<ResumeLink> getByCandidateId(int candidateId);
 
 }

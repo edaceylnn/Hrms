@@ -33,14 +33,9 @@ public class ResumeLanguagesController {
 		return resumeLanguageService.add(resumeLanguage);
 	}
 
-	@GetMapping("/findAllByResumeId")
-	DataResult<List<ResumeLanguage>> findAllByResumeId(int resumeId) {
-		return resumeLanguageService.findAllByResumeId(resumeId);
+	@GetMapping("/getAll")
+	DataResult<List<ResumeLanguage>> getAll() {
+		return resumeLanguageService.getAll();
 	}
 	
-	@PostMapping("/addAll")
-	public Result ResultAdd(List<ResumeLanguage> resumeLanguages) {
-		return resumeLanguageService.addAll(resumeLanguages);
-		
-	}
 }

@@ -31,14 +31,15 @@ public class ResumeLinkManager implements ResumeLinkService{
 		return new SuccessResult("Link eklendi");
 	}
 
+
 	@Override
-	public DataResult<List<ResumeLink>> findAllByResumeId(int resumeId) {
-		return new SuccessDataResult<List<ResumeLink>>(resumeLinkDao.findAllByResumeId(resumeId),"Linkler listelendi");
+	public DataResult<List<ResumeLink>> getByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<ResumeLink>>(resumeLinkDao.getByCandidateId(candidateId));
 	}
 
 	@Override
-	public Result addAll(List<ResumeLink> resumeLinks) {
-		resumeLinkDao.saveAll(resumeLinks);
-		return new SuccessResult("Linkler eklendi");
+	public DataResult<List<ResumeLink>> getAll() {
+	
+		return new SuccessDataResult<List<ResumeLink>>(this.resumeLinkDao.findAll(),"Data listelendi");
 	}
 }

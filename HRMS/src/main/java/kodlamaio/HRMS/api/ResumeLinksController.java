@@ -17,24 +17,22 @@ import kodlamaio.HRMS.entities.concretes.ResumeLink;
 @RestController
 @RequestMapping("/api/resumeLinks")
 public class ResumeLinksController {
-	
+
 	private ResumeLinkService resumeLinkService;
-	
-	
+
 	@Autowired
 	public ResumeLinksController(ResumeLinkService resumeLinkService) {
 		super();
 		this.resumeLinkService = resumeLinkService;
 	}
 
-	
 	@PostMapping("/add")
 	public Result add(@RequestBody ResumeLink resumeLink) {
 		return resumeLinkService.add(resumeLink);
 	}
-	
-	@GetMapping("/findAllByResumeId")
-	DataResult<List<ResumeLink>> findAllByResumeId(int resumeId) {
-		return resumeLinkService.findAllByResumeId(resumeId);
+
+	@GetMapping("/getAll")
+	DataResult<List<ResumeLink>> getAll() {
+		return resumeLinkService.getAll();
 	}
 }

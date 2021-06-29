@@ -19,20 +19,20 @@ import kodlamaio.HRMS.entities.concretes.ResumeSkill;
 public class ResumeSkillsController {
 
 	private ResumeSkillService resumeSkillService;
-	
+
 	@Autowired
 	public ResumeSkillsController(ResumeSkillService resumeSkillService) {
 		super();
 		this.resumeSkillService = resumeSkillService;
 	}
-	
+
 	@PostMapping("/add")
 	public Result add(@RequestBody ResumeSkill resumeSkillDto) {
 		return resumeSkillService.add(resumeSkillDto);
 	}
-	
-	@GetMapping("/findAllByResumeId")
-	DataResult<List<ResumeSkill>> findAllByResumeId(int resumeId) {
-		return resumeSkillService.findAllByResumeId(resumeId);
+
+	@GetMapping("/getAll")
+	DataResult<List<ResumeSkill>> getAll() {
+		return resumeSkillService.getAll();
 	}
 }

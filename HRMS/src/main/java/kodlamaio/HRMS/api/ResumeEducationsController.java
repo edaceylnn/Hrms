@@ -17,7 +17,7 @@ import kodlamaio.HRMS.entities.concretes.ResumeEducation;
 @RestController
 @RequestMapping("/api/resumeEducations")
 public class ResumeEducationsController {
-	
+
 	private ResumeEducationService resumeEducationService;
 
 	@Autowired
@@ -25,20 +25,15 @@ public class ResumeEducationsController {
 		super();
 		this.resumeEducationService = resumeEducationService;
 	}
-	
 
 	@PostMapping("/add")
 	public Result add(@RequestBody ResumeEducation resumeEducation) {
 		return resumeEducationService.add(resumeEducation);
 	}
-	
-	@GetMapping("/findAllByResumeId")
-	DataResult<List<ResumeEducation>> findAllByResumeId(int resumeId) {
-		return resumeEducationService.findAllByResumeId(resumeId);
+
+	@GetMapping("/getAll")
+	public DataResult<List<ResumeEducation>> getAll() {
+		return this.resumeEducationService.getAll();
 	}
-	
-	@GetMapping("/findAllByResumeIdOrderByEndDateDesc")
-	DataResult<List<ResumeEducation>> findAllByResumeIdOrderByEndDateDesc(int resumeId){
-		return resumeEducationService.findAllByResumeIdOrderByEndDateDesc(resumeId);
-	}
+
 }

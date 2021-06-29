@@ -28,13 +28,11 @@ public class ResumeExperiencesController {
 	public Result add(@RequestBody ResumeExperience resumeExperience) {
 		return resumeExperienceService.add(resumeExperience);
 	}
-	@GetMapping("/findAllByResumeId")
-	DataResult<List<ResumeExperience>> findAllByResumeId(int resumeId) {
-		return resumeExperienceService.findAllByResumeId(resumeId);
+	
+	@GetMapping("/getAll")
+	DataResult<List<ResumeExperience>> getAll() {
+		return resumeExperienceService.getAll();
 	}
-	@GetMapping("/findAllByResumeIdOrderByEndDateDesc")
-	DataResult<List<ResumeExperience>> findAllByResumeIdOrderByEndDateDesc(int resumeId){
-		return resumeExperienceService.findAllByResumeIdOrderByEndDateDesc(resumeId);
-	}
+
 
 }

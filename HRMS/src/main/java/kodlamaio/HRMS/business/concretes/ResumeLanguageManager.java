@@ -30,15 +30,15 @@ public class ResumeLanguageManager  implements ResumeLanguageService{
 		return new SuccessResult("Dil eklendi");
 	}
 
+
 	@Override
-	public DataResult<List<ResumeLanguage>> findAllByResumeId(int resumeId) {
-		return new SuccessDataResult<List<ResumeLanguage>>(resumeLanguageDao.findAllByResumeId(resumeId),"Diller listelendi");
+	public DataResult<List<ResumeLanguage>> getByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<ResumeLanguage>>(resumeLanguageDao.getByCandidateId(candidateId));
 	}
 
 	@Override
-	public Result addAll(List<ResumeLanguage> resumeLanguage) {
-		resumeLanguageDao.saveAll(resumeLanguage);
-		return new SuccessResult("Diller eklendi");
+	public DataResult<List<ResumeLanguage>> getAll() {
+		return new SuccessDataResult<List<ResumeLanguage>>(this.resumeLanguageDao.findAll(),"Data listelendi");
 	}
 
 

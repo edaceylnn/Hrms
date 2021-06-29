@@ -1,18 +1,11 @@
 package kodlamaio.HRMS.entities.concretes;
 
-
-
-
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
-
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 
 import lombok.AllArgsConstructor;
@@ -26,10 +19,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="candidates")
-@PrimaryKeyJoinColumn(name = "id",referencedColumnName = "id")
 public class Candidate extends User {
 	
-
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -42,8 +33,30 @@ public class Candidate extends User {
 	@Column(name="birth_year")
 	private int birthYear;
 	
-    @OneToOne(mappedBy = "candidate")
-    private UserPhoto userPhoto;
+	@OneToMany(mappedBy = "candidate")
+	private List<ResumeEducation> resumeEducation;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<ResumeSkill> resumeSkill;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<ResumeLink> resumeLink;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<ResumeLanguage> resumeLanguage;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<ResumeCoverLetter> resumeCoverLetter;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<ResumeExperience> resumeExperience;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<UserPhoto> userPhoto;
+	
+	
 	
 
+
+    
 }

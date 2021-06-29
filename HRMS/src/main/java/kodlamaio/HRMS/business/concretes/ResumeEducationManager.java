@@ -36,22 +36,15 @@ public class ResumeEducationManager  implements ResumeEducationService{
 		return new SuccessResult("Eğitim bilgisi eklendi");
 	}
 
-
 	@Override
-	public DataResult<List<ResumeEducation>> findAllByResumeId(int resumeId) {
-		return new SuccessDataResult<List<ResumeEducation>>(resumeEducationDao.findAllByResumeId(resumeId),"Eğitimler listelendi");
-	}
-
-	@Override
-	public DataResult<List<ResumeEducation>> findAllByResumeIdOrderByEndDateDesc(int resumeId) {
+	public DataResult<List<ResumeEducation>> getByCandidateId(int candidateId) {
 	
-		return new SuccessDataResult<List<ResumeEducation>>(resumeEducationDao.findAllByResumeIdOrderByEndDateDesc(resumeId),"Eğitimler mezuniyet yılına göre listelendi");
+		return new SuccessDataResult<List<ResumeEducation>>(resumeEducationDao.getByCandidateId(candidateId));
 	}
 
 	@Override
-	public Result addAll(List<ResumeEducation> resumeEducations) {
-		resumeEducationDao.saveAll(resumeEducations);
-		return new SuccessResult("Eğitim bilgileri eklendi");
+	public DataResult<List<ResumeEducation>> getAll() {
+		return new SuccessDataResult<List<ResumeEducation>>(this.resumeEducationDao.findAll(),"Data listelendi");
 	}
 
 }

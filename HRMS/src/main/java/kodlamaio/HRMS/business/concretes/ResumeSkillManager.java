@@ -34,16 +34,15 @@ public class ResumeSkillManager implements ResumeSkillService {
 		return new SuccessResult("Yetenek eklendi");
 	}
 
+
 	@Override
-	public DataResult<List<ResumeSkill>> findAllByResumeId(int resumeId) {
-		
-		return new SuccessDataResult<List<ResumeSkill>>(resumeSkillDao.findAllByResumeId(resumeId),"Yetenekler listelendi");
+	public DataResult<List<ResumeSkill>> getByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<ResumeSkill>>(resumeSkillDao.getByCandidateId(candidateId));
 	}
 
 	@Override
-	public Result addAll(List<ResumeSkill> resumeSkills) {
-		resumeSkillDao.saveAll(resumeSkills);
-		return new SuccessResult("Yetenekler eklendi");
+	public DataResult<List<ResumeSkill>> getAll() {
+		return new SuccessDataResult<List<ResumeSkill>>(this.resumeSkillDao.findAll(),"Data listelendi");
 	}
 
 	

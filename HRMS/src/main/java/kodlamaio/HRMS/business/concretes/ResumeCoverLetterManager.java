@@ -36,6 +36,11 @@ public class ResumeCoverLetterManager implements ResumeCoverLetterService{
 		return new SuccessDataResult<List<ResumeCoverLetter>>(this.resumeCoverLetterDao.findAll(),"Data listelendi");
 	}
 
+	@Override
+	public DataResult<List<ResumeCoverLetter>> getByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<ResumeCoverLetter>>(resumeCoverLetterDao.getByCandidateId(candidateId));
+	}
+
 
 
 }

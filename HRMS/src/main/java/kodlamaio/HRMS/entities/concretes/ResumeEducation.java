@@ -2,6 +2,7 @@ package kodlamaio.HRMS.entities.concretes;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,15 +31,6 @@ public class ResumeEducation {
 	@Column(name="id")
 	private int id;
 	
-	@JsonIgnore
-	@ManyToOne()
-	@JoinColumn(name="resume_id",referencedColumnName = "id")
-	private Resume resume;
-	
-	@ManyToOne()
-	@JoinColumn(name="degree_id",referencedColumnName = "id")
-	private ResumeEducationDegree degree;	
-	
 	@Column(name="school_name")
 	private String schoolName;
 	
@@ -51,5 +42,10 @@ public class ResumeEducation {
 	
 	@Column(name="end_date")
 	private Date endDate;
+	
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="candidate_id",referencedColumnName = "id")
+	private Candidate candidate;
 	
 }

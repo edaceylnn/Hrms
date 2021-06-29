@@ -1,5 +1,6 @@
 package kodlamaio.HRMS.entities.concretes;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,14 +29,13 @@ public class ResumeCoverLetter {
 	@Column(name="id")
 	private int id;
 	
-	@JsonIgnore
-	@ManyToOne()
-	@JoinColumn(name="resume_id",referencedColumnName = "id")
-	private Resume resume;
-	
-	@Column(name="title")
-	private String title;
-	
 	@Column(name="cover_letter")
 	private String coverLetter;
+	
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="candidate_id",referencedColumnName = "id")
+	private Candidate candidate;
+
+	
 }
